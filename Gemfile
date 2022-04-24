@@ -1,7 +1,15 @@
+def next?
+  $next_rails = File.basename(__FILE__) == "Gemfile.next"
+end
+
 source 'https://rubygems.org'
 ruby '2.7.5'
 
-gem 'rails', '5.2.6.3'
+if next?
+  gem 'rails', '~> 6.0'
+else
+  gem 'rails', '5.2.6.3'
+end
 
 gem 'activeadmin', '~> 2.1'
 gem 'bootsnap', require: false
@@ -37,9 +45,15 @@ gem 'webpacker', '~> 5'
 group :development, :test do
   gem 'better_errors', '~> 2.9.1'
   gem 'binding_of_caller'
-  gem 'dotenv-rails', '~> 2.2.1'
+  if next?
+    gem 'dotenv-rails'
+  else
+    gem 'dotenv-rails', '~> 2.2.1'
+  end
+
   gem 'factory_bot_rails', '~> 4.8.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'next_rails'
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop', require: false
