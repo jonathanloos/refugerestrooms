@@ -32,6 +32,7 @@ RUN curl -L https://nodejs.org/dist/latest-v$NODEJS_MAJOR_VERSION\.x/SHASUMS256.
 
 # Add Node.js binaries to PATH (includes Node and NPM, will include Yarn)
 ENV PATH="/usr/local/nodejs/bin/:${PATH}"
+ENV BUNDLE_GEMFILE="Gemfile.next"
 
 # Install Yarn
 RUN npm install -g yarn
@@ -41,7 +42,7 @@ RUN mkdir /refugerestrooms
 WORKDIR /refugerestrooms
 
 # Install Ruby gems with Bundler
-COPY Gemfile Gemfile.lock /refugerestrooms/
+COPY Gemfile Gemfile.lock Gemfile.next Gemfile.next.lock /refugerestrooms/
 RUN bundle install
 
 # Install Node.js packages with Yarn

@@ -14,6 +14,7 @@ services:
     platform: linux/amd64
     environment:
       PGPASSWORD: uaI7m2kmWd949DMv4dCh
+      BUNDLE_GEMFILE: Gemfile.next
     build: .
     entrypoint: [setup/entry]
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
