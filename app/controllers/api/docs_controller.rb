@@ -1,4 +1,4 @@
-module Api
+module API
   class DocsController < ApplicationController
     def index; end
   end
