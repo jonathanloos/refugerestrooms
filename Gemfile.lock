@@ -449,6 +449,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   rubocop-rspec
+  sassc (= 2.2.1)
   sassc-rails
   sdoc
   simple_form (~> 5.0)
