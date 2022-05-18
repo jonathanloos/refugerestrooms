@@ -20,6 +20,7 @@ services:
       - .:/refugerestrooms
       - /refugerestrooms/node_modules
       - bundle:/usr/local/bundle
+      - ~/.ssh:/root/.ssh:ro
     ports:
       - "3000:3000"
     depends_on:
