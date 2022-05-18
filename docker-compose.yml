@@ -21,6 +21,7 @@ services:
       - .:/refugerestrooms
       - /refugerestrooms/node_modules
       - bundle:/usr/local/bundle
+      - ~/.ssh:/root/.ssh:ro # Copy ssh credentials from local machine into the container
     ports:
       - "3000:3000"
     depends_on:
